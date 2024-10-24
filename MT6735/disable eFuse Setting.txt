@@ -1,0 +1,16 @@
+def disable_protection():
+    try:
+        with open("/dev/jtag_enable", "w") as f:
+            f.write("0")  
+        print("JTAG disabled.")
+    except:
+        print("Failed to disable JTAG.")
+
+    try:
+        with open("/dev/nand_boot_disable", "w") as f:
+            f.write("1") 
+        print("NAND boot disabled.")
+    except:
+        print("Failed to disable NAND boot.")
+
+disable_protection()

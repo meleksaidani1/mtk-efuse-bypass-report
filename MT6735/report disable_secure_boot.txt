@@ -1,0 +1,9 @@
+def disable_secure_boot():
+    try:
+        with open("/dev/secure_boot_check", "w") as f:
+            f.write("0")
+        print("Secure boot disabled.")
+    except:
+        print("Failed to disable secure boot.")
+        
+disable_secure_boot()

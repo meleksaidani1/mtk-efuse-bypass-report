@@ -1,0 +1,12 @@
+def disable_boot_protection():
+    try:
+        with open("/dev/nand_boot_disable", "w") as f:
+            f.write("1")
+        print("NAND boot disabled.")
+        with open("/dev/emmc_boot_disable", "w") as f:
+            f.write("1")
+        print("EMMC boot disabled.")
+    except:
+        print("Failed to disable boot protections.")
+        
+disable_boot_protection()
